@@ -1,4 +1,7 @@
 <?php
+// Minimize css
+define('CSS_MIN', false);
+
 /**
  * ml-base functions and definitions.
  *
@@ -26,6 +29,8 @@ function kirki_update_url( $config ) {
 }
 add_filter( 'kirki/config', 'kirki_update_url' );
 
+/* include the css crush pre processor*/
+require_once 'css-crush/CssCrush.php';
 
 if ( ! function_exists( 'ml_base_setup' ) ) :
 /**
@@ -134,7 +139,12 @@ add_action( 'widgets_init', 'ml_base_widgets_init' );
  * Enqueue scripts and styles.
  */
 function ml_base_scripts() {
-    wp_enqueue_style( 'ml-base-style', get_stylesheet_uri() );
+  //  wp_enqueue_style( 'ml-base-style', get_stylesheet_uri() );
+    if (WP_DEBUG or !CSS_MIN) {
+        wp_enqueue_style( 'ml-base-style', 'http://' . $_SERVER['HTTP_HOST'] . csscrush_file(get_template_directory() . '/style.css' , array('minify' => 'false' , 'formatter' => 'block' ) ));
+    } else {
+        wp_enqueue_style( 'ml-base-style', 'http://' . $_SERVER['HTTP_HOST'] . csscrush_file(get_template_directory() . '/style.css' ));
+    }
 
     wp_enqueue_script( 'ml-base-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
