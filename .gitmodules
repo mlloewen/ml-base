@@ -1,3 +1,6 @@
 [submodule "css-crush"]
 	path = css-crush
 	url = https://github.com/peteboere/css-crush.git
+[submodule "kirki"]
+	path = kirki
+	url = https://github.com/aristath/kirki.git
