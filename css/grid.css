@@ -1,0 +1,104 @@
+/* https://gist.github.com/croxton/5974307 */
+/* =============================================================================
+   Variables
+   ========================================================================== */
+
+@define {
+  grid-gutter: 10px;
+  small:  min-width:36em;
+  medium: min-width:48em;
+  large:  min-width:62.5em;
+  xlarge: min-width:75em;
+}
+
+/* =============================================================================
+   Grids
+   ========================================================================== */
+
+@mixin span {
+  width: math(arg(0,12)/arg(1,12)*100)%;
+}
+
+@mixin col-base {
+  background-clip:padding-box !important;
+  width: 100%; /* default width */
+  border-left: $(grid-gutter) solid transparent;
+  vertical-align: top;
+}
+
+@abstract row {
+  clear: left;
+  overflow: hidden;
+  margin-left: -$(grid-gutter);
+}
+
+/* for floated grids */
+@abstract col {
+  @include col-base;
+  float:left;
+}
+
+/* for inline-block grids */
+@abstract col-inline {
+  @include col-base;
+  display: inline-block;
+}
+
+@fragment cols {
+  @abstract arg(0)-col-one     { @include span(1);    }
+  @abstract arg(0)-col-two     { @include span(2);    }
+  @abstract arg(0)-col-three   { @include span(3);    }
+  @abstract arg(0)-col-four    { @include span(4);    }
+  @abstract arg(0)-col-five    { @include span(5);    }
+  @abstract arg(0)-col-six     { @include span(6);    }
+  @abstract arg(0)-col-seven   { @include span(7);    }
+  @abstract arg(0)-col-eight   { @include span(8);    }
+  @abstract arg(0)-col-nine    { @include span(9);    }
+  @abstract arg(0)-col-ten     { @include span(10);   }
+  @abstract arg(0)-col-eleven  { @include span(11);   }
+  @abstract arg(0)-col-twelve  { @include span;       }
+}
+
+/* xsmall (default value, adopting the mobile first approach) */
+@fragment cols(xsmall);
+
+/* small */
+@media screen and ($(small)) {
+  @fragment cols(small);
+}
+/* medium */
+@media screen and ($(medium)) {
+  @fragment cols(medium);
+}
+/* large */
+@media screen and ($(large)) {
+  @fragment cols(large);
+}
+/* xlarge */
+@media screen and ($(xlarge)) {
+  @fragment cols(xlarge);
+}
+
+
+/* =============================================================================
+   Layout
+   ========================================================================== */
+
+.my-semantic-row-class {
+  @extend row;
+}
+
+/* span 2 cols at large breakpoint, 4 at medium, 6 at small, 12 (full width) by default */
+.my-semantic-column-class {
+  @extend col, xsmall-col-twelve, small-col-six, medium-col-four, large-col-two;
+}
+
+/* span 6 cols at large breakpoint, 12 by default */
+.my-semantic-column-class2 {
+   @extend col, xsmall-col-twelve, large-col-six;
+}
+
+/* span 4 cols at large breakpoint, 12 by default */
+.my-semantic-column-class3 {
+   @extend col,  small-col-twelve, medium-col-six, large-col-four;
+}
