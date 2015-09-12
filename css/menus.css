@@ -36,9 +36,11 @@
     top: 0;
 }
 
+
 .main-navigation ul ul a {
-    width: 200px;
+    width: 10em;
 }
+
 
 .main-navigation ul ul li {
 
