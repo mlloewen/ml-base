@@ -1,7 +1,7 @@
 /*
 Theme Name: ml-base
 Theme URI: http://underscores.me/
-Author: Underscores.me
+Author: Matthew Loewen
 Author URI: http://underscores.me/
 Description: Description
 Version: 1.0.0
@@ -88,6 +88,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 --------------------------------------------------------------*/
 
 @import "css/menus.css";
+@import "css/simple-purecss-menu.css";
 
 /*--------------------------------------------------------------
 # Accessibility

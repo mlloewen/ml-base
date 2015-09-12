@@ -1,0 +1,74 @@
+/*
+* Pure CSS Horizontal Drop Down Menu
+*/
+
+/* Set position relative so that the sub menu relates to this when setting it absolute */
+nav.main-menu > div > ul {
+    background-color: #eee;
+    list-style: none;
+    width: 100%;
+    height: 29px;
+    position: relative;
+}
+/* Align the list items next to each other */
+nav.main-menu ul li {
+    display: block;
+    float: left;
+    font-size: .9em;
+    text-transform: uppercase;
+}
+nav.main-menu ul li a {
+    text-decoration: none;
+    padding: 7px 15px;
+}
+nav.main-menu > div > ul > li > a {
+    background-color: #eee;
+    border-right: 1px solid #ccc;
+    float: left;
+    color: #999;
+}
+/* Add a border on the left side only to the first link in the top menu, to avoid double borders on the others */
+nav.main-menu > div > ul > li:first-child > a {
+    border-left: 1px solid #ccc;
+}
+/* On hover, change the text color*/
+nav.main-menu > div > ul > li a:hover {
+        background-color: #7cf;
+}
+/* Change the background and text color at the link of the current page */
+nav.main-menu > div > ul > li.current-menu-item > a,
+nav.main-menu > div > ul > li.current_page_parent > a {
+    background-color: #ccc;
+       color: #333;
+}
+/* Move the menu a bit to the right so that there is a small edge on the left, just for design purpose */
+nav.main-menu div ul li:first-child {
+        margin-left: 5px;
+}
+
+/* Sub menu */
+/* When you hover a list item in the main menu that has a sub menu, show it */
+nav.main-menu li:hover > ul,
+nav.main-menu li:hover > ul {
+        display: block;
+}
+/* Put the position to absolute and move it to the right position */
+nav.main-menu > div > ul > li > ul {
+    width: 100%;
+    display: none;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+nav.main-menu > div > ul > li > ul > li > a {
+    color: #999;
+    padding: 5px 10px;
+}
+/* Change the text color and add a bottom border to the link of the current page */
+nav.main-menu > div > ul > li > ul > li.current-menu-item > a {
+    color: #333;
+    border-bottom: 2px solid #ccc;
+}

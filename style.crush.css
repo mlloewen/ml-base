@@ -4,7 +4,7 @@
 /*
 Theme Name: ml-base
 Theme URI: http://underscores.me/
-Author: Underscores.me
+Author: Matthew Loewen
 Author URI: http://underscores.me/
 Description: Description
 Version: 1.0.0
@@ -230,6 +230,88 @@ td,
 th {
     padding: 0;
     }
+
+/*--------------------------------------------------------------
+# Grid
+--------------------------------------------------------------*/
+/* https://gist.github.com/croxton/5974307 */
+/* =============================================================================
+   Variables
+   ========================================================================== */
+/* =============================================================================
+   Grids
+   ========================================================================== */
+.my-semantic-row-class {
+    clear: left;
+    overflow: hidden;
+    margin-left: -10px;
+    }
+
+/* for floated grids */
+.my-semantic-column-class,
+.my-semantic-column-class2,
+.my-semantic-column-class3 {
+    background-clip: padding-box !important;
+    width: 100%;
+    border-left: 10px solid transparent;
+    vertical-align: top;
+    float: left;
+    }
+
+/* for inline-block grids */
+
+/* xsmall (default value, adopting the mobile first approach) */
+.my-semantic-column-class,
+.my-semantic-column-class2 {
+    width: 100%;
+    }
+
+/* small */
+@media screen and (min-width:36em) {
+.my-semantic-column-class {
+    width: 50%;
+    }
+.my-semantic-column-class3 {
+    width: 100%;
+    }
+}
+
+/* medium */
+@media screen and (min-width:48em) {
+.my-semantic-column-class {
+    width: 33.33333%;
+    }
+.my-semantic-column-class3 {
+    width: 50%;
+    }
+}
+
+/* large */
+@media screen and (min-width:62.5em) {
+.my-semantic-column-class {
+    width: 16.66667%;
+    }
+.my-semantic-column-class3 {
+    width: 33.33333%;
+    }
+.my-semantic-column-class2 {
+    width: 50%;
+    }
+}
+
+/* xlarge */
+@media screen and (min-width:75em) {
+}
+
+/* =============================================================================
+   Layout
+   ========================================================================== */
+
+/* span 2 cols at large breakpoint, 4 at medium, 6 at small, 12 (full width) by default */
+
+/* span 6 cols at large breakpoint, 12 by default */
+
+/* span 4 cols at large breakpoint, 12 by default */
 
 /*--------------------------------------------------------------
 # Typography
@@ -540,6 +622,86 @@ a:active {
     float: right;
     text-align: right;
     width: 50%;
+    }
+
+/*
+* Pure CSS Horizontal Drop Down Menu
+*/
+/* Set position relative so that the sub menu relates to this when setting it absolute */
+nav.main-menu > div > ul {
+    background-color: #eee;
+    list-style: none;
+    width: 100%;
+    height: 29px;
+    position: relative;
+    }
+
+/* Align the list items next to each other */
+nav.main-menu ul li {
+    display: block;
+    float: left;
+    font-size: .9em;
+    text-transform: uppercase;
+    }
+nav.main-menu ul li a {
+    text-decoration: none;
+    padding: 7px 15px;
+    }
+nav.main-menu > div > ul > li > a {
+    background-color: #eee;
+    border-right: 1px solid #ccc;
+    float: left;
+    color: #999;
+    }
+
+/* Add a border on the left side only to the first link in the top menu, to avoid double borders on the others */
+nav.main-menu > div > ul > li:first-child > a {
+    border-left: 1px solid #ccc;
+    }
+
+/* On hover, change the text color*/
+nav.main-menu > div > ul > li a:hover {
+    background-color: #7cf;
+    }
+
+/* Change the background and text color at the link of the current page */
+nav.main-menu > div > ul > li.current-menu-item > a,
+nav.main-menu > div > ul > li.current_page_parent > a {
+    background-color: #ccc;
+    color: #333;
+    }
+
+/* Move the menu a bit to the right so that there is a small edge on the left, just for design purpose */
+nav.main-menu div ul li:first-child {
+    margin-left: 5px;
+    }
+
+/* Sub menu */
+/* When you hover a list item in the main menu that has a sub menu, show it */
+nav.main-menu li:hover > ul {
+    display: block;
+    }
+
+/* Put the position to absolute and move it to the right position */
+nav.main-menu > div > ul > li > ul {
+    width: 100%;
+    display: none;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    }
+nav.main-menu > div > ul > li > ul > li > a {
+    color: #999;
+    padding: 5px 10px;
+    }
+
+/* Change the text color and add a bottom border to the link of the current page */
+nav.main-menu > div > ul > li > ul > li.current-menu-item > a {
+    color: #333;
+    border-bottom: 2px solid #ccc;
     }
 
 /*--------------------------------------------------------------
