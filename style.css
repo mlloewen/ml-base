@@ -88,8 +88,10 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 --------------------------------------------------------------*/
 
 @import "css/menus.css";
+ @import "css/css-menu.css";
+/*@import "simple-purecss-menu.css";*/
 /*@import "css/menu-maker-css3-ddm.css";*/
-@import "css/menu-maker-resp.css";
+/*@import "css/menu-maker-resp.css";*/
 
 /*--------------------------------------------------------------
 # Accessibility

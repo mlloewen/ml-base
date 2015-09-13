@@ -33,7 +33,7 @@ add_filter( 'kirki/config', 'kirki_update_url' );
 require_once 'css-crush/CssCrush.php';
 
 /*  css menumaker menu walker */
-require_once 'inc/css-menu-maker.php';
+//require_once 'inc/css-menu-maker.php';
 
 if ( ! function_exists( 'ml_base_setup' ) ) :
 /**
@@ -154,7 +154,7 @@ function ml_base_scripts() {
     wp_enqueue_script( 'ml-base-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
 // menu maker script to add responsivenes
-    wp_enqueue_script( 'menumaker', 'https://cdn.rawgit.com/cssmenumaker/jQuery-Plugin-Responsive-Drop-Down/3da6b5060acfed9097bdb02c4b5c234db7bc3600/js/min/menumaker.min.js', array(), '20130115', true );
+ /*   wp_enqueue_script( 'menumaker', 'https://cdn.rawgit.com/cssmenumaker/jQuery-Plugin-Responsive-Drop-Down/3da6b5060acfed9097bdb02c4b5c234db7bc3600/js/min/menumaker.min.js', array(), '20130115', true );*/
 
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

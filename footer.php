@@ -20,13 +20,13 @@
 <?php wp_footer(); ?>
 
 <!--menu maker config-->
-<script type="text/javascript">
+<!--<script type="text/javascript">
     $("#cssmenu").menumaker({
         title: "Menu",
         format: "multitoggle",
         breakpoint: 768
     });
-</script>
+</script>-->
 
 </body>
 
